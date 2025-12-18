@@ -367,7 +367,7 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
                         onChange={(e) => handleInputChange("days_available", e.target.value)}
                         className="rounded-sm border-2 border-slate-300 focus:border-blue-500 focus:ring-0 bg-white"
                       />
-                      <p className="text-xs text-slate-500 mt-1">System will calculate required labourers to meet deadline</p>
+                      <p className="text-xs text-slate-500 mt-1">System will calculate required Installation Agents to meet deadline</p>
                     </div>
                   ) : (
                     <div>
