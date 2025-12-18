@@ -350,7 +350,13 @@ const Home = ({ onLogout, onSwitchToUK }) => {
                   <Label htmlFor="fence_type" className="text-sm font-medium text-slate-700 mb-2 block">
                     Fence Types
                   </Label>
-                  <Select value={formData.fence_type} onValueChange={(value) => handleInputChange("fence_type", value)}>
+                  <Select value={formData.fence_type} onValueChange={(value) => {
+                    handleInputChange("fence_type", value);
+                    if (value !== "CUSTOM") {
+                      handleInputChange("custom_fence_name", "");
+                      handleInputChange("custom_daily_rate", "");
+                    }
+                  }}>
                     <SelectTrigger data-testid="fence-type-select" className="rounded-sm border-2 border-slate-300 focus:border-amber-500 focus:ring-0 bg-white">
                       <SelectValue placeholder="Select fence type" />
                     </SelectTrigger>
@@ -358,9 +364,43 @@ const Home = ({ onLogout, onSwitchToUK }) => {
                       <SelectItem value="OR">OR - Oval Running Rail (136m/day)</SelectItem>
                       <SelectItem value="PR1">PR1</SelectItem>
                       <SelectItem value="PR2">PR2</SelectItem>
+                      <SelectItem value="CUSTOM">📝 Specify Fence Type / Daily Installation Ratio</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
+
+                {formData.fence_type === "CUSTOM" && (
+                  <div className="space-y-4 p-4 bg-amber-50 border-2 border-amber-200 rounded-sm">
+                    <div>
+                      <Label htmlFor="custom_fence_name" className="text-sm font-medium text-slate-700 mb-2 block">
+                        Custom Fence Type Name
+                      </Label>
+                      <Input
+                        id="custom_fence_name"
+                        data-testid="custom-fence-name-input"
+                        placeholder="Enter fence type name (e.g., My Custom Fence)"
+                        value={formData.custom_fence_name}
+                        onChange={(e) => handleInputChange("custom_fence_name", e.target.value)}
+                        className="rounded-sm border-2 border-slate-300 focus:border-amber-500 focus:ring-0 bg-white"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="custom_daily_rate" className="text-sm font-medium text-slate-700 mb-2 block">
+                        Daily Installation Rate (meters/day)
+                      </Label>
+                      <Input
+                        id="custom_daily_rate"
+                        data-testid="custom-daily-rate-input"
+                        type="number"
+                        placeholder="Enter daily rate (e.g., 50 for 50m/day)"
+                        value={formData.custom_daily_rate}
+                        onChange={(e) => handleInputChange("custom_daily_rate", e.target.value)}
+                        className="rounded-sm border-2 border-slate-300 focus:border-amber-500 focus:ring-0 bg-white"
+                      />
+                      <p className="text-xs text-slate-500 mt-1">Enter only digits. Example: 50 means 50 meters per day</p>
+                    </div>
+                  </div>
+                )}
 
                 <div>
                   <Label htmlFor="ground_fixing_method" className="text-sm font-medium text-slate-700 mb-2 block">
