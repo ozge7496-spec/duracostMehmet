@@ -372,7 +372,7 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
                   ) : (
                     <div>
                       <Label htmlFor="num_labourers" className="text-sm font-medium text-slate-700 mb-2 block">
-                        How many men required during installation?
+                        How many Installation Agents required?
                       </Label>
                       <Input
                         id="num_labourers"
