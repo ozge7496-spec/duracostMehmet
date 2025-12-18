@@ -441,7 +441,7 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
                       <span className="text-sm text-slate-600 flex items-center gap-1">
                         <Users className="w-4 h-4" /> Installation Agents Required:
                       </span>
-                      <span className="font-mono font-bold text-blue-700">{result.breakdown.num_labourers} men</span>
+                      <span className="font-mono font-bold text-blue-700">{result.breakdown.num_labourers} agents</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-slate-600">Work Days:</span>
