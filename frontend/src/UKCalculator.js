@@ -377,7 +377,7 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
                       <Input
                         id="num_labourers"
                         type="number"
-                        placeholder="Leave empty for default (2 labourers)"
+                        placeholder="Leave empty for default (2 Installation Agents)"
                         value={formData.num_labourers}
                         onChange={(e) => handleInputChange("num_labourers", e.target.value)}
                         className="rounded-sm border-2 border-slate-300 focus:border-blue-500 focus:ring-0 bg-white"
