@@ -350,10 +350,14 @@ UK_FENCE_PRODUCTIVITY = {
 
 def calculate_uk_pricing(request: UKCalculationRequest):
     """Calculate UK-specific pricing"""
-    if request.fence_type not in UK_FENCE_PRODUCTIVITY:
-        raise HTTPException(status_code=400, detail="Invalid fence type selected")
-
-    base_productivity_2_men = UK_FENCE_PRODUCTIVITY[request.fence_type]
+    # Use custom daily rate if provided, otherwise use predefined fence types
+    if request.custom_daily_rate and request.custom_daily_rate > 0:
+        base_productivity_2_men = request.custom_daily_rate
+    elif request.fence_type in UK_FENCE_PRODUCTIVITY:
+        base_productivity_2_men = UK_FENCE_PRODUCTIVITY[request.fence_type]
+    else:
+        # Default to 60m/day for unknown custom fence types
+        base_productivity_2_men = 60
 
     gate_hours_total = request.gates * 2
 
