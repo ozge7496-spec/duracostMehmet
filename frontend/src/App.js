@@ -601,21 +601,45 @@ const Home = ({ onLogout, onSwitchToUK }) => {
                   )}
 
                   <div className="space-y-2 mb-6">
-                    <div className="flex justify-between items-center bg-amber-50 border-2 border-amber-200 rounded-sm p-3">
-                      <span className="text-sm font-medium text-slate-900">+30% Markup:</span>
-                      <span data-testid="markup-30" className="font-mono font-bold text-amber-700">£{result.breakdown.markup_30.toFixed(2)}</span>
+                    <div className="bg-amber-50 border-2 border-amber-200 rounded-sm p-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium text-slate-900">+30% Markup:</span>
+                        <span data-testid="markup-30" className="font-mono font-bold text-amber-700">£{result.breakdown.markup_30.toFixed(2)}</span>
+                      </div>
+                      <div className="flex justify-between items-center mt-1 pt-1 border-t border-amber-200">
+                        <span className="text-xs text-slate-500">Rate per Meter:</span>
+                        <span className="font-mono text-sm text-amber-600">£{(result.breakdown.rate_per_meter * 1.3).toFixed(2)}/m</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between items-center bg-amber-50 border-2 border-amber-200 rounded-sm p-3">
-                      <span className="text-sm font-medium text-slate-900">+40% Markup:</span>
-                      <span data-testid="markup-40" className="font-mono font-bold text-amber-700">£{result.breakdown.markup_40.toFixed(2)}</span>
+                    <div className="bg-amber-50 border-2 border-amber-200 rounded-sm p-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium text-slate-900">+40% Markup:</span>
+                        <span data-testid="markup-40" className="font-mono font-bold text-amber-700">£{result.breakdown.markup_40.toFixed(2)}</span>
+                      </div>
+                      <div className="flex justify-between items-center mt-1 pt-1 border-t border-amber-200">
+                        <span className="text-xs text-slate-500">Rate per Meter:</span>
+                        <span className="font-mono text-sm text-amber-600">£{(result.breakdown.rate_per_meter * 1.4).toFixed(2)}/m</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between items-center bg-amber-50 border-2 border-amber-200 rounded-sm p-3">
-                      <span className="text-sm font-medium text-slate-900">+50% Markup:</span>
-                      <span data-testid="markup-50" className="font-mono font-bold text-amber-700">£{result.breakdown.markup_50.toFixed(2)}</span>
+                    <div className="bg-amber-50 border-2 border-amber-200 rounded-sm p-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium text-slate-900">+50% Markup:</span>
+                        <span data-testid="markup-50" className="font-mono font-bold text-amber-700">£{result.breakdown.markup_50.toFixed(2)}</span>
+                      </div>
+                      <div className="flex justify-between items-center mt-1 pt-1 border-t border-amber-200">
+                        <span className="text-xs text-slate-500">Rate per Meter:</span>
+                        <span className="font-mono text-sm text-amber-600">£{(result.breakdown.rate_per_meter * 1.5).toFixed(2)}/m</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between items-center bg-emerald-50 border-2 border-emerald-200 rounded-sm p-3">
-                      <span className="text-sm font-medium text-slate-900">+60% Markup:</span>
-                      <span data-testid="markup-60" className="font-mono font-bold text-emerald-700">£{result.breakdown.markup_60.toFixed(2)}</span>
+                    <div className="bg-emerald-50 border-2 border-emerald-200 rounded-sm p-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium text-slate-900">+60% Markup:</span>
+                        <span data-testid="markup-60" className="font-mono font-bold text-emerald-700">£{result.breakdown.markup_60.toFixed(2)}</span>
+                      </div>
+                      <div className="flex justify-between items-center mt-1 pt-1 border-t border-emerald-200">
+                        <span className="text-xs text-slate-500">Rate per Meter:</span>
+                        <span className="font-mono text-sm text-emerald-600">£{(result.breakdown.rate_per_meter * 1.6).toFixed(2)}/m</span>
+                      </div>
                     </div>
                   </div>
 
