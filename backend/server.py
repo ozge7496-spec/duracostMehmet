@@ -151,7 +151,11 @@ def calculate_pricing(request: CalculationRequest):
         "PR2": 128
     }
 
-    daily_capacity = fence_types.get(request.fence_type, 136)
+    # Use custom daily rate if provided, otherwise use predefined fence types
+    if request.custom_daily_rate and request.custom_daily_rate > 0:
+        daily_capacity = request.custom_daily_rate
+    else:
+        daily_capacity = fence_types.get(request.fence_type, 136)
 
     fence_days = request.meters / daily_capacity
     gate_days = request.gates * 0.25
