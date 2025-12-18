@@ -382,7 +382,7 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
                         onChange={(e) => handleInputChange("num_labourers", e.target.value)}
                         className="rounded-sm border-2 border-slate-300 focus:border-blue-500 focus:ring-0 bg-white"
                       />
-                      <p className="text-xs text-slate-500 mt-1">Default: 2 labourers if not specified</p>
+                      <p className="text-xs text-slate-500 mt-1">Default: 2 Installation Agents if not specified</p>
                     </div>
                   )}
                 </div>
