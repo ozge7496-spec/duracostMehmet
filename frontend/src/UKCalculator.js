@@ -595,7 +595,7 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
                       <th className="text-left py-3 px-2 font-medium text-slate-700">Project</th>
                       <th className="text-left py-3 px-2 font-medium text-slate-700">Type</th>
                       <th className="text-right py-3 px-2 font-medium text-slate-700">Meters</th>
-                      <th className="text-right py-3 px-2 font-medium text-slate-700">Labourers</th>
+                      <th className="text-right py-3 px-2 font-medium text-slate-700">Agents</th>
                       <th className="text-right py-3 px-2 font-medium text-slate-700">Days</th>
                       <th className="text-right py-3 px-2 font-medium text-slate-700">Total</th>
                       <th className="text-right py-3 px-2 font-medium text-slate-700">Rate/m</th>
