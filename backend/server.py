@@ -146,14 +146,13 @@ def calculate_pricing(request: CalculationRequest):
     if min_wage == 0:
         min_wage = 15.00
 
-    # Fence types synchronized with UK version, scaled for 8-man team
-    # OR = 1080m/day (8 men), others = 240m/day (8 men)
+    # Fence types for International Calculator - all 170m/day
     fence_types = {
-        "OR": 1080,   # Oval Running Rail - 1080m/day for 8-man team
-        "PR": 240,    # PR - 240m/day for 8-man team
-        "CM": 240,    # CM - 240m/day for 8-man team
-        "CT": 240,    # CT - 240m/day for 8-man team
-        "HM": 240     # HM - 240m/day for 8-man team
+        "OR": 170,    # Oval Running Rail - 170m/day
+        "PR": 170,    # PR - 170m/day
+        "CM": 170,    # CM - 170m/day
+        "CT": 170,    # CT - 170m/day
+        "HM": 170     # HM - 170m/day
     }
 
     # Use custom daily rate if provided, otherwise use predefined fence types
