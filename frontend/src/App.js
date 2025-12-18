@@ -141,16 +141,23 @@ const Home = ({ onLogout, onSwitchToUK }) => {
       return;
     }
 
+    // Validate custom fence type fields
+    if (formData.fence_type === "CUSTOM" && (!formData.custom_fence_name || !formData.custom_daily_rate)) {
+      toast.error("Please fill in custom fence name and daily installation rate");
+      return;
+    }
+
     setLoading(true);
     try {
       const calculationData = {
         user_name: formData.user_name,
         project_name: formData.project_name,
         country: formData.country,
-        fence_type: formData.fence_type,
+        fence_type: formData.fence_type === "CUSTOM" ? formData.custom_fence_name : formData.fence_type,
         meters: parseFloat(formData.meters),
         gates: parseInt(formData.gates),
-        ground_fixing_method: formData.ground_fixing_method
+        ground_fixing_method: formData.ground_fixing_method,
+        custom_daily_rate: formData.fence_type === "CUSTOM" ? parseInt(formData.custom_daily_rate) : null
       };
 
       const response = await axios.post(`${API}/calculate-preview`, calculationData);
