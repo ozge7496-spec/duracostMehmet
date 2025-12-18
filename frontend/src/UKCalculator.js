@@ -154,7 +154,8 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
       days_available: "",
       num_labourers: "",
       custom_fence_name: "",
-      custom_daily_rate: ""
+      custom_daily_rate: "",
+      driving_hours: ""
     });
     setResult(null);
     setShowWorstCase(false);
