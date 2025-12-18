@@ -382,6 +382,22 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
                   />
                 </div>
 
+                <div>
+                  <Label htmlFor="driving_hours" className="text-sm font-medium text-slate-700 mb-2 block">
+                    Driving Hours (One Way)
+                  </Label>
+                  <Input
+                    id="driving_hours"
+                    type="number"
+                    step="0.5"
+                    placeholder="Enter driving hours to site (one way)"
+                    value={formData.driving_hours}
+                    onChange={(e) => handleInputChange("driving_hours", e.target.value)}
+                    className="rounded-sm border-2 border-slate-300 focus:border-[#1E3A5F] focus:ring-0 bg-white"
+                  />
+                  <p className="text-xs text-slate-500 mt-1">Return trip will be calculated automatically (x2)</p>
+                </div>
+
                 <Separator className="my-4" />
 
                 <div className="bg-blue-50 border-2 border-blue-200 rounded-sm p-4">
