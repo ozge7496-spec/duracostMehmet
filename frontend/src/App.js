@@ -382,11 +382,11 @@ const Home = ({ onLogout, onSwitchToUK }) => {
                       <SelectValue placeholder="Select fence type" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="OR">OR - Oval Running Rail (1080m/day)</SelectItem>
-                      <SelectItem value="PR">PR (240m/day)</SelectItem>
-                      <SelectItem value="CM">CM (240m/day)</SelectItem>
-                      <SelectItem value="CT">CT (240m/day)</SelectItem>
-                      <SelectItem value="HM">HM (240m/day)</SelectItem>
+                      <SelectItem value="OR">OR - Oval Running Rail (170m/day)</SelectItem>
+                      <SelectItem value="PR">PR (170m/day)</SelectItem>
+                      <SelectItem value="CM">CM (170m/day)</SelectItem>
+                      <SelectItem value="CT">CT (170m/day)</SelectItem>
+                      <SelectItem value="HM">HM (170m/day)</SelectItem>
                       <SelectItem value="CUSTOM">📝 Specify Fence Type / Daily Installation Ratio</SelectItem>
                     </SelectContent>
                   </Select>
