@@ -150,7 +150,9 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
       gates: "",
       is_time_sensitive: false,
       days_available: "",
-      num_labourers: ""
+      num_labourers: "",
+      custom_fence_name: "",
+      custom_daily_rate: ""
     });
     setResult(null);
     setShowWorstCase(false);
