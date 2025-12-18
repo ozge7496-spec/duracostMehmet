@@ -413,7 +413,15 @@ def calculate_uk_pricing(request: UKCalculationRequest):
     else:
         concrete_cost = 0.0
 
-    raw_total = labor_cost + total_tools_cost + accommodation_cost + transportation_cost + concrete_cost
+    # Calculate driving cost if driving_hours is provided
+    driving_days = 0.0
+    driving_cost = 0.0
+    if request.driving_hours and request.driving_hours > 0:
+        total_driving_hours = request.driving_hours * 2  # Return trip
+        driving_days = math.ceil(total_driving_hours / 8)  # 8 hours per day
+        driving_cost = driving_days * num_labourers * UK_DAILY_RATE_PER_MAN
+
+    raw_total = labor_cost + total_tools_cost + accommodation_cost + transportation_cost + concrete_cost + driving_cost
     rate_per_meter = raw_total / request.meters if request.meters > 0 else 0
 
     breakdown = UKCostBreakdown(
@@ -425,6 +433,8 @@ def calculate_uk_pricing(request: UKCalculationRequest):
         accommodation_cost=round(accommodation_cost, 2),
         transportation_cost=round(transportation_cost, 2),
         concrete_cost=round(concrete_cost, 2),
+        driving_days=round(driving_days, 2),
+        driving_cost=round(driving_cost, 2),
         raw_total=round(raw_total, 2),
         rate_per_meter=round(rate_per_meter, 2),
         markup_30=round(raw_total * 1.30, 2),
@@ -447,6 +457,7 @@ def calculate_uk_pricing(request: UKCalculationRequest):
         is_time_sensitive=request.is_time_sensitive,
         days_available=request.days_available,
         num_labourers=num_labourers,
+        driving_hours=request.driving_hours,
         breakdown=breakdown
     )
 
