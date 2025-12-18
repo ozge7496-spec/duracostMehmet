@@ -89,6 +89,12 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
       return;
     }
 
+    // Validate custom fence type fields
+    if (formData.fence_type === "CUSTOM" && (!formData.custom_fence_name || !formData.custom_daily_rate)) {
+      toast.error("Please fill in custom fence name and daily installation rate");
+      return;
+    }
+
     setLoading(true);
     try {
       const calculationData = {
@@ -96,12 +102,13 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
         delivery_lead: formData.delivery_lead,
         delivery_copilot: formData.delivery_copilot,
         project_name: formData.project_name,
-        fence_type: formData.fence_type,
+        fence_type: formData.fence_type === "CUSTOM" ? formData.custom_fence_name : formData.fence_type,
         meters: parseFloat(formData.meters),
         gates: parseInt(formData.gates),
         is_time_sensitive: formData.is_time_sensitive,
         days_available: formData.is_time_sensitive ? parseInt(formData.days_available) : null,
-        num_labourers: !formData.is_time_sensitive && formData.num_labourers ? parseInt(formData.num_labourers) : null
+        num_labourers: !formData.is_time_sensitive && formData.num_labourers ? parseInt(formData.num_labourers) : null,
+        custom_daily_rate: formData.fence_type === "CUSTOM" ? parseInt(formData.custom_daily_rate) : null
       };
 
       const response = await axios.post(`${API}/calculate-preview`, calculationData);
