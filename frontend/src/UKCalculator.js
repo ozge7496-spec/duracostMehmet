@@ -452,7 +452,7 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
                       <span className="font-mono font-medium text-[#1E3A5F]">£{result.breakdown.daily_rate_per_man.toFixed(2)}/day</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-slate-600">Labour Cost:</span>
+                      <span className="text-sm text-slate-600">Installation Agent Cost:</span>
                       <span className="font-mono font-medium text-slate-900">£{result.breakdown.labor_cost.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between items-center">
