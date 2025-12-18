@@ -205,7 +205,8 @@ const Home = ({ onLogout, onSwitchToUK }) => {
       gates: "",
       ground_fixing_method: "Angle Steel",
       custom_fence_name: "",
-      custom_daily_rate: ""
+      custom_daily_rate: "",
+      manual_daily_labor_rate: ""
     });
     setResult(null);
     setShowWorstCase(false);
