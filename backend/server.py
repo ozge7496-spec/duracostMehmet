@@ -86,6 +86,7 @@ class CalculationRequest(BaseModel):
     meters: float
     gates: int
     ground_fixing_method: str = "Angle Steel"
+    custom_daily_rate: Optional[int] = None
 
 class CostBreakdown(BaseModel):
     work_days: float
