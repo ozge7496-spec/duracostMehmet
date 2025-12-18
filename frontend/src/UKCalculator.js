@@ -109,7 +109,8 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
         is_time_sensitive: formData.is_time_sensitive,
         days_available: formData.is_time_sensitive ? parseInt(formData.days_available) : null,
         num_labourers: !formData.is_time_sensitive && formData.num_labourers ? parseInt(formData.num_labourers) : null,
-        custom_daily_rate: formData.fence_type === "CUSTOM" ? parseInt(formData.custom_daily_rate) : null
+        custom_daily_rate: formData.fence_type === "CUSTOM" ? parseInt(formData.custom_daily_rate) : null,
+        driving_hours: formData.driving_hours ? parseFloat(formData.driving_hours) : null
       };
 
       const response = await axios.post(`${API}/calculate-preview`, calculationData);
