@@ -567,17 +567,35 @@ const Home = ({ onLogout, onSwitchToUK }) => {
 
                   {showWorstCase && (
                     <div className="space-y-3 mb-6 animate-in fade-in slide-in-from-top-4 duration-300">
-                      <div className="flex justify-between items-center bg-orange-50 border-2 border-orange-200 rounded-sm p-3">
-                        <span className="text-sm font-medium text-slate-900">Bad Case (+20%):</span>
-                        <span className="font-mono font-bold text-orange-700">£{result.breakdown.bad_case_20?.toFixed(2) || (result.breakdown.raw_total * 1.2).toFixed(2)}</span>
+                      <div className="bg-orange-50 border-2 border-orange-200 rounded-sm p-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm font-medium text-slate-900">Bad Case (+20%):</span>
+                          <span className="font-mono font-bold text-orange-700">£{result.breakdown.bad_case_20?.toFixed(2) || (result.breakdown.raw_total * 1.2).toFixed(2)}</span>
+                        </div>
+                        <div className="flex justify-between items-center mt-1 pt-1 border-t border-orange-200">
+                          <span className="text-xs text-slate-500">Rate per Meter:</span>
+                          <span className="font-mono text-sm text-orange-600">£{(result.breakdown.rate_per_meter * 1.2).toFixed(2)}/m</span>
+                        </div>
                       </div>
-                      <div className="flex justify-between items-center bg-orange-100 border-2 border-orange-300 rounded-sm p-3">
-                        <span className="text-sm font-medium text-slate-900">More Bad Case (+40%):</span>
-                        <span className="font-mono font-bold text-orange-800">£{result.breakdown.more_bad_case_40?.toFixed(2) || (result.breakdown.raw_total * 1.4).toFixed(2)}</span>
+                      <div className="bg-orange-100 border-2 border-orange-300 rounded-sm p-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm font-medium text-slate-900">More Bad Case (+40%):</span>
+                          <span className="font-mono font-bold text-orange-800">£{result.breakdown.more_bad_case_40?.toFixed(2) || (result.breakdown.raw_total * 1.4).toFixed(2)}</span>
+                        </div>
+                        <div className="flex justify-between items-center mt-1 pt-1 border-t border-orange-300">
+                          <span className="text-xs text-slate-500">Rate per Meter:</span>
+                          <span className="font-mono text-sm text-orange-700">£{(result.breakdown.rate_per_meter * 1.4).toFixed(2)}/m</span>
+                        </div>
                       </div>
-                      <div className="flex justify-between items-center bg-red-100 border-2 border-red-300 rounded-sm p-3">
-                        <span className="text-sm font-medium text-slate-900">Worst Case (+80%):</span>
-                        <span className="font-mono font-bold text-red-700">£{result.breakdown.worst_case_80?.toFixed(2) || (result.breakdown.raw_total * 1.8).toFixed(2)}</span>
+                      <div className="bg-red-100 border-2 border-red-300 rounded-sm p-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm font-medium text-slate-900">Worst Case (+80%):</span>
+                          <span className="font-mono font-bold text-red-700">£{result.breakdown.worst_case_80?.toFixed(2) || (result.breakdown.raw_total * 1.8).toFixed(2)}</span>
+                        </div>
+                        <div className="flex justify-between items-center mt-1 pt-1 border-t border-red-300">
+                          <span className="text-xs text-slate-500">Rate per Meter:</span>
+                          <span className="font-mono text-sm text-red-600">£{(result.breakdown.rate_per_meter * 1.8).toFixed(2)}/m</span>
+                        </div>
                       </div>
                     </div>
                   )}
