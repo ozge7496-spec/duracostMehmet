@@ -352,6 +352,22 @@ const Home = ({ onLogout, onSwitchToUK }) => {
                 </div>
 
                 <div>
+                  <Label htmlFor="manual_daily_labor_rate" className="text-sm font-medium text-slate-700 mb-2 block">
+                    Daily Labor Rate per Person (Optional)
+                  </Label>
+                  <Input
+                    id="manual_daily_labor_rate"
+                    data-testid="manual-daily-labor-rate-input"
+                    type="number"
+                    placeholder="Leave empty to use country's minimum wage calculation"
+                    value={formData.manual_daily_labor_rate}
+                    onChange={(e) => handleInputChange("manual_daily_labor_rate", e.target.value)}
+                    className="rounded-sm border-2 border-slate-300 focus:border-amber-500 focus:ring-0 bg-white"
+                  />
+                  <p className="text-xs text-slate-500 mt-1">Override the automatic rate calculation (£/day per person)</p>
+                </div>
+
+                <div>
                   <Label htmlFor="fence_type" className="text-sm font-medium text-slate-700 mb-2 block">
                     Fence Types
                   </Label>
@@ -366,9 +382,11 @@ const Home = ({ onLogout, onSwitchToUK }) => {
                       <SelectValue placeholder="Select fence type" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="OR">OR - Oval Running Rail (136m/day)</SelectItem>
-                      <SelectItem value="PR1">PR1</SelectItem>
-                      <SelectItem value="PR2">PR2</SelectItem>
+                      <SelectItem value="OR">OR - Oval Running Rail (1080m/day)</SelectItem>
+                      <SelectItem value="PR">PR (240m/day)</SelectItem>
+                      <SelectItem value="CM">CM (240m/day)</SelectItem>
+                      <SelectItem value="CT">CT (240m/day)</SelectItem>
+                      <SelectItem value="HM">HM (240m/day)</SelectItem>
                       <SelectItem value="CUSTOM">📝 Specify Fence Type / Daily Installation Ratio</SelectItem>
                     </SelectContent>
                   </Select>
