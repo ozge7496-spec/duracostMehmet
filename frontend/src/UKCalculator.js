@@ -212,7 +212,7 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
                 <h1 className="font-heading text-2xl sm:text-3xl font-black text-white tracking-tight">
                   Duracost UK - Installation
                 </h1>
-                <p className="text-slate-200 text-sm mt-1">UK Market Calculator - 2 Labour Base</p>
+                <p className="text-slate-200 text-sm mt-1">UK Market Calculator - 2 Installation Agent Base</p>
               </div>
             </div>
             <div className="flex gap-2">
