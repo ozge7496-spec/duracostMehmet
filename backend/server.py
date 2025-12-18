@@ -294,6 +294,7 @@ class UKCalculationRequest(BaseModel):
     num_labourers: Optional[int] = None
     delivery_lead: Optional[str] = None
     delivery_copilot: Optional[str] = None
+    custom_daily_rate: Optional[int] = None
 
 class UKCostBreakdown(BaseModel):
     work_days: float
