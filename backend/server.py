@@ -345,6 +345,7 @@ class UKCalculation(BaseModel):
     num_labourers: int
     delivery_lead: Optional[str] = None
     delivery_copilot: Optional[str] = None
+    driving_hours: Optional[float] = None
     breakdown: UKCostBreakdown
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
