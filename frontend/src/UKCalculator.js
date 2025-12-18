@@ -439,7 +439,7 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
                   <div className="space-y-3">
                     <div className="flex justify-between items-center bg-blue-50 rounded-sm p-2">
                       <span className="text-sm text-slate-600 flex items-center gap-1">
-                        <Users className="w-4 h-4" /> Labourers Required:
+                        <Users className="w-4 h-4" /> Installation Agents Required:
                       </span>
                       <span className="font-mono font-bold text-blue-700">{result.breakdown.num_labourers} men</span>
                     </div>
