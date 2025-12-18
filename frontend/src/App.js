@@ -201,7 +201,9 @@ const Home = ({ onLogout, onSwitchToUK }) => {
       fence_type: "",
       meters: "",
       gates: "",
-      ground_fixing_method: "Angle Steel"
+      ground_fixing_method: "Angle Steel",
+      custom_fence_name: "",
+      custom_daily_rate: ""
     });
     setResult(null);
     setShowWorstCase(false);
