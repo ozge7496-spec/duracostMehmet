@@ -146,28 +146,39 @@ def calculate_pricing(request: CalculationRequest):
     if min_wage == 0:
         min_wage = 15.00
 
+    # Fence types synchronized with UK version, scaled for 8-man team
+    # OR = 1080m/day (8 men), others = 240m/day (8 men)
     fence_types = {
-        "OR": 136,
-        "PR1": 136,
-        "PR2": 128
+        "OR": 1080,   # Oval Running Rail - 1080m/day for 8-man team
+        "PR": 240,    # PR - 240m/day for 8-man team
+        "CM": 240,    # CM - 240m/day for 8-man team
+        "CT": 240,    # CT - 240m/day for 8-man team
+        "HM": 240     # HM - 240m/day for 8-man team
     }
 
     # Use custom daily rate if provided, otherwise use predefined fence types
     if request.custom_daily_rate and request.custom_daily_rate > 0:
         daily_capacity = request.custom_daily_rate
     else:
-        daily_capacity = fence_types.get(request.fence_type, 136)
+        daily_capacity = fence_types.get(request.fence_type, 240)
 
     fence_days = request.meters / daily_capacity
-    gate_days = request.gates * 0.25
+    # Gate logic: 1 gate takes 2 hours of 2 agents (4 man-hours)
+    # For 8-man team: 4 man-hours / (8 men * 8 hours/day) = 0.0625 days per gate
+    gate_days = request.gates * 0.0625
     setup_cleanup_days = 1
     total_work_days_calculated = fence_days + gate_days + setup_cleanup_days
 
     total_work_days = math.ceil(total_work_days_calculated)
 
-    hourly_labor_rate = 2 * min_wage
-    daily_rate_per_man = hourly_labor_rate * 8
-    daily_labor_cost = 8 * daily_rate_per_man
+    # Use manual daily labor rate if provided, otherwise calculate from minimum wage
+    if request.manual_daily_labor_rate and request.manual_daily_labor_rate > 0:
+        daily_rate_per_man = request.manual_daily_labor_rate
+    else:
+        hourly_labor_rate = 2 * min_wage
+        daily_rate_per_man = hourly_labor_rate * 8
+    
+    daily_labor_cost = 8 * daily_rate_per_man  # 8-man team
     total_labor_cost = daily_labor_cost * total_work_days
 
     tools_base = 200
