@@ -543,6 +543,14 @@ const UKCalculator = ({ onLogout, onSwitchCalculator }) => {
                         <span className="font-mono font-medium text-slate-900">£{result.breakdown.concrete_cost.toFixed(2)}</span>
                       </div>
                     )}
+                    {result.breakdown.driving_cost > 0 && (
+                      <div className="flex justify-between items-center bg-purple-50 rounded-sm p-2 mt-2">
+                        <span className="text-sm text-slate-600">
+                          Driving Time Cost ({result.breakdown.driving_days} days):
+                        </span>
+                        <span className="font-mono font-medium text-purple-700">£{result.breakdown.driving_cost.toFixed(2)}</span>
+                      </div>
+                    )}
                   </div>
 
                   <Separator className="my-4" />
