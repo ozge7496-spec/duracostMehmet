@@ -466,7 +466,7 @@ const Home = ({ onLogout, onSwitchToUK }) => {
                       </div>
                     )}
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-slate-600">Labour Cost (8 workers):</span>
+                      <span className="text-sm text-slate-600">Installation Agent Cost (8 agents):</span>
                       <span className="font-mono font-medium text-slate-900">£{result.breakdown.labor_cost.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between items-center">
