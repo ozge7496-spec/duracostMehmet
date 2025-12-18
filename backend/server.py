@@ -356,11 +356,11 @@ UK_ACCOMMODATION_PER_DAY_PER_MAN = 75.0
 UK_TRANSPORTATION_COST = 250.0
 UK_CONCRETE_COST_PER_METER = 2.0
 UK_FENCE_PRODUCTIVITY = {
-    "OR": 270,
-    "PR": 60,
-    "CM": 60,
-    "CT": 60,
-    "HM": 60
+    "OR": 270,    # OR - 270m/day
+    "PR": 60,     # PR - 60m/day
+    "CM": 60,     # CM - 60m/day
+    "CT": 60,     # CT - 60m/day
+    "HM": 60      # HM - 60m/day
 }
 
 def calculate_uk_pricing(request: UKCalculationRequest):
