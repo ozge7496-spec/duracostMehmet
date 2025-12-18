@@ -318,6 +318,8 @@ class UKCostBreakdown(BaseModel):
     accommodation_cost: float
     transportation_cost: float
     concrete_cost: float
+    driving_days: Optional[float] = 0.0
+    driving_cost: Optional[float] = 0.0
     raw_total: float
     rate_per_meter: float
     markup_30: float
