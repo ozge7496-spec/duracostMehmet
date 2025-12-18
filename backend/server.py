@@ -307,6 +307,7 @@ class UKCalculationRequest(BaseModel):
     delivery_lead: Optional[str] = None
     delivery_copilot: Optional[str] = None
     custom_daily_rate: Optional[int] = None
+    driving_hours: Optional[float] = None  # One-way driving hours
 
 class UKCostBreakdown(BaseModel):
     work_days: float
